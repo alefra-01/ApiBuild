@@ -1,21 +1,20 @@
 package com.example.demo.controller;
 
 import com.example.demo.exception.ApiBuilException;
+import com.example.demo.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import java.util.Scanner;
 
-@RestController
 @Slf4j
-public class TestController {
+public class ExceptionTestController {
 
-    @GetMapping("/test")
-    public Map<String, String> InitializationController () {
+    @GetMapping("/testException")
+    public String InitializaTestController () throws ApiBuilException {
         String controlMe = "Correct";
         log.info("/test initialized");
-        return Map.of(controlMe, "Correct");
-    }
+        return controlMe;
 
+    }
 }
