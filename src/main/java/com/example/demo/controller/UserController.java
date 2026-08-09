@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
+@Valid
 public class UserController {
     private final UserService userService;
 

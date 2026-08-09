@@ -15,23 +15,19 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final PasswordEncoder passwordEncoder;
-
-    /*
-    public UserService (UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }*/
 
     public List<User> getEveryuser () {
         return userRepository.findAll();
     }
 
     public User createuser(User user) {
-        String hash = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hash);
+        user.setPassword(hashPass(user.getPassword()));
         return userRepository.save(user);
+    }
+
+    private String hashPass (String pass) {
+        return  passwordEncoder.encode(pass);
     }
 
     public boolean checkPassword (User user) {
