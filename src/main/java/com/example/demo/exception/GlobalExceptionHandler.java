@@ -29,6 +29,11 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 
+    @ExceptionHandler (InvalidTokenException.class)
+    public ResponseEntity<String> handleApiBuild401(InvalidTokenException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
+    }
+
     @ExceptionHandler (ApiBuilException.class)
     public ResponseEntity<String> handleApiBuild500 (ApiBuilException ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());

@@ -15,6 +15,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder ();
     }
 
+
+    //Skip the navigator menu
     @Bean
     public SecurityFilterChain quitLogin (HttpSecurity http) throws Exception {
         return http
