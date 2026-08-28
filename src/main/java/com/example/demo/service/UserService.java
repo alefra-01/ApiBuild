@@ -30,7 +30,7 @@ public class UserService {
         return  passwordEncoder.encode(pass);
     }
 
-    public boolean checkPassword (User user) {
+    public boolean  checkPassword (User user) {
         String username = user.getUsername();
         Optional<User> encontrado = userRepository.findByUsername(username);
         User usuarioFind = encontrado.get();
